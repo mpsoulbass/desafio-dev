@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    'drf_yasg2',
+    "drf_yasg2",
     "sales.core",
     "sales.customers",
     "sales.stores",
@@ -52,9 +52,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-            ],
+            ]
         },
-    },
+    }
 ]
 
 WSGI_APPLICATION = "sales.wsgi.application"
@@ -64,18 +64,10 @@ DATABASES = {"default": env.db()}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
 # Internationalization
@@ -87,11 +79,10 @@ USE_TZ = True
 USE_THOUSAND_SEPARATOR = True
 
 # ====================[ SWAGGER ]======================
-SWAGGER_SETTINGS = {
-    "DEFAULT_INFO": "sales.urls.open_api_obj",
-}
+SWAGGER_SETTINGS = {"DEFAULT_INFO": "sales.urls.open_api_obj"}
 # ================[ DJANGO REST FRAMEWORK ]====================
 REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
 }
@@ -108,12 +99,4 @@ MEDIA_DIRS = (os.path.join(BASE_DIR, "mediafiles"),)
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Application Cache
-CACHES = {
-    "default": env.cache(),
-}
-
-# Local Settings
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+CACHES = {"default": env.cache()}
