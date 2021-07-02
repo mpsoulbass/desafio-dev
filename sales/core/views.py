@@ -1,5 +1,6 @@
 from django.db.models import ProtectedError
 from rest_framework.exceptions import ValidationError
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 
 class ProtectedDestroyMixin:
@@ -18,3 +19,14 @@ class ProtectedDestroyMixin:
                     ]
                 }
             )
+
+
+class DefaultViewSetMixin:
+    filter_backends = [
+        SearchFilter,
+        OrderingFilter,
+    ]
+    serializers = dict()
+
+    def get_serializer_class(self):
+        return self.serializers.get(self.action, self.serializer_class)
