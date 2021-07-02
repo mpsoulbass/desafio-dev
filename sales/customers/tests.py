@@ -25,10 +25,13 @@ class CustomerTestCase(TestCase):
             customer=self.customer,
             number="000000000000000"
         )
-        cid = self.customer.id
-        self.assertGreater(CustomerCard.objects.filter(customer_id=cid).count(), 0)
+        customer_id = self.customer.id
+        self.assertGreater(CustomerCard.objects.filter(customer_id=customer_id).count(), 0)
 
         self.customer.delete()
 
         self.assertEqual(Customer.objects.count(), 0)
-        self.assertEqual(CustomerCard.objects.filter(customer_id=cid).count(), 0)
+        self.assertEqual(CustomerCard.objects.filter(customer_id=customer_id).count(), 0)
+
+        with self.assertRaises(Customer.DoesNotExist):
+            Customer.objects.get(pk=customer_id)
