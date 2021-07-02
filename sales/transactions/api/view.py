@@ -33,11 +33,15 @@ class TransactionsImportViewSet(ViewSet):
     parser_classes = [MultiPartParser, FormParser]
 
     def create(self, request):
+        row_size_without_store_owner = 50
         if "file" not in request.data.keys():
             raise ValidationError({"file": "Este campo é obrigatório"})
 
         transactions = request.data["file"]
         for transaction in transactions.split("\n"):
+            if len(transaction) < row_size_without_store_owner:
+                continue
+
             DataValidator(transaction)
             t = DataParser(transaction).proccess()
             if t is None:
