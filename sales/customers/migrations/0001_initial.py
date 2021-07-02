@@ -13,12 +13,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='StoreOwner',
+            name='Customer',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('name', models.CharField(max_length=60, verbose_name='Nome')),
+                ('cpf', models.CharField(max_length=11, unique=True, verbose_name='CPF')),
             ],
             options={
                 'ordering': ['id', 'created_at', 'updated_at'],
@@ -26,13 +26,13 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='Store',
+            name='CustomerCard',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('name', models.CharField(max_length=60, verbose_name='Nome')),
-                ('owner', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='stores', to='stores.storeowner')),
+                ('number', models.CharField(max_length=15, verbose_name='Card Number')),
+                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='credit_cards', to='customers.customer')),
             ],
             options={
                 'ordering': ['id', 'created_at', 'updated_at'],
