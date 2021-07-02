@@ -84,7 +84,22 @@ Este desafio foi baseado neste outro desafio: https://github.com/lschallenges/da
 
 ### Executar o projeto
 
-Docker
+Este projeto possui 3 componentes:
+- Interface Web ( Frontend )
+- Backend ( Backend )
+- Banco de Dados
+
+As imagens do frontend e backend estão armazenadas no
+dockerhub. Para executar este projeto é necessário ter o docker instalado
+em seu computador e o docker-compose. Caso não tenha, siga os links abaixo
+para realizar a configuração do seu ambienteo:
+
+- [Instalação do Docker](https://docs.docker.com/docker-for-windows/install/)
+- [Instalação do Docker-Compose](https://docs.docker.com/compose/install/)
+
+Tendo o ambiente configurado execute o seguinte comando na pasta
+raiz do projeto:
+
 ```shell
 docker-compose up -d
 ```
