@@ -14,7 +14,7 @@ services:
       POSTGRES_PORT: "5432"
 
   backend:
-    image: docker.io/marcusba/sales:1.0
+    image: docker.io/marcusba/sales-backend:1.0
     container_name: backend
     hostname: backend
     restart: on-failure
@@ -25,7 +25,7 @@ services:
     command: bash /app/wait-for.sh postgres:5432 -t 10 -- bash /app/start_server.sh
 
   frontend:
-    image: docker.io/marcusba/sales-front:1.0
+    image: docker.io/marcusba/sales-frontend:1.0
     container_name: frontend
     hostname: frontend
     restart: on-failure
