@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  backend:
+    image: localhost/sales:1.0
+    container_name: backend
+    hostname: backend
+    restart: on-failure
+    stdin_open: true
+    tty: true
+    ports:
+      - 8000:8000
+    volumes:
+      - ../:/app
+      - static_volume:/app/staticfiles
+    command: bash /app/docker/wait-for.sh postgres:5432 -t 10 -- bash /app/docker/start_server.sh
+
+  postgres:
+    image: docker.io/library/postgres:12
+    container_name: postgres
+    hostname: postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    restart: on-failure
+    ports:
+      - 5432:5432
+    env_file:
+      - .env

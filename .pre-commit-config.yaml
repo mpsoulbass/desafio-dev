@@ -1,0 +1,43 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-added-large-files
+      - id: check-json
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: name-tests-test
+        args: [ "--django" ]
+      - id: trailing-whitespace
+
+  # BANDIT
+  - repo: https://github.com/pycqa/bandit
+    rev: 1.7.0
+    hooks:
+      - id: bandit
+        args: [ "-iii", "-ll" ]
+
+  # BLACK
+  - repo: https://github.com/psf/black
+    rev: 19.3b0
+    hooks:
+      - id: black
+        args: [ --line-length=99 ]
+
+  # FLAKE 8
+  - repo: https://gitlab.com/PyCQA/flake8
+    rev: 3.8.3
+    hooks:
+      - id: flake8
+        args: [ --max-line-length=99, --exclude=maat_backend.settings ]
+        additional_dependencies: [
+            "flake8-bugbear",
+            "flake8-comprehensions",
+            "flake8-mutable",
+            "flake8-print",
+            "flake8-simplify",
+        ]
