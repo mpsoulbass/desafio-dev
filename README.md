@@ -82,4 +82,31 @@ Este desafio foi baseado neste outro desafio: https://github.com/lschallenges/da
 
 ---
 
-Boa sorte!
+### Executar o projeto
+
+Docker
+```shell
+docker-compose up -d
+```
+
+### Acessar o Sistema
+
+Interface Web:
+```djangourlpath
+http://0.0.0.0:8000
+```
+
+DOC da API:
+```djangourlpath
+http://0.0.0.0:5000/doc
+```
+
+[ JSON ] Baixar Schema:
+```djangourlpath
+http://0.0.0.0:5000/schema.json
+```
+
+[ YAML ] Baixar o Schema:
+```djangourlpath
+http://0.0.0.0:5000/schema.yaml
+```
