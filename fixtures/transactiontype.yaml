@@ -1,0 +1,81 @@
+- model: transactions.transactiontype
+  pk: 2
+  fields:
+    created_at: 2021-06-28 12:37:47.439000+00:00
+    updated_at: 2021-06-28 12:37:47.439000+00:00
+    description: Débito
+    code: 1
+    nature: e
+    signal: '+'
+- model: transactions.transactiontype
+  pk: 3
+  fields:
+    created_at: 2021-06-28 12:37:47.439000+00:00
+    updated_at: 2021-06-28 12:37:47.439000+00:00
+    description: Boleto
+    code: 2
+    nature: s
+    signal: '-'
+- model: transactions.transactiontype
+  pk: 4
+  fields:
+    created_at: 2021-06-28 12:37:47.439000+00:00
+    updated_at: 2021-06-28 12:37:47.439000+00:00
+    description: Financiamento
+    code: 3
+    nature: s
+    signal: '-'
+- model: transactions.transactiontype
+  pk: 5
+  fields:
+    created_at: 2021-06-28 12:37:47.439000+00:00
+    updated_at: 2021-06-28 12:37:47.439000+00:00
+    description: Crédito
+    code: 4
+    nature: e
+    signal: '+'
+- model: transactions.transactiontype
+  pk: 6
+  fields:
+    created_at: 2021-06-28 12:37:47.439000+00:00
+    updated_at: 2021-06-28 12:37:47.439000+00:00
+    description: Recebimento Empréstimo
+    code: 5
+    nature: e
+    signal: '+'
+- model: transactions.transactiontype
+  pk: 7
+  fields:
+    created_at: 2021-06-28 12:37:47.439000+00:00
+    updated_at: 2021-06-28 12:37:47.439000+00:00
+    description: Vendas
+    code: 6
+    nature: e
+    signal: '+'
+- model: transactions.transactiontype
+  pk: 8
+  fields:
+    created_at: 2021-06-28 12:37:47.439000+00:00
+    updated_at: 2021-06-28 12:37:47.439000+00:00
+    description: Recebimento TED
+    code: 7
+    nature: e
+    signal: '+'
+- model: transactions.transactiontype
+  pk: 9
+  fields:
+    created_at: 2021-06-28 12:37:47.439000+00:00
+    updated_at: 2021-06-28 12:37:47.439000+00:00
+    description: Recebimento DOC
+    code: 8
+    nature: e
+    signal: '+'
+- model: transactions.transactiontype
+  pk: 10
+  fields:
+    created_at: 2021-06-28 12:37:47.439000+00:00
+    updated_at: 2021-06-28 12:37:47.439000+00:00
+    description: Aluguel
+    code: 9
+    nature: s
+    signal: '-'
