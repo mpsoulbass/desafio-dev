@@ -1,6 +1,7 @@
 from rest_framework import routers
 
 from sales.customers.api.router import customer_router
+from sales.reports.api.router import report_router
 from sales.stores.api.router import store_router
 from sales.transactions.api.router import transaction_router
 
@@ -14,3 +15,6 @@ router.registry.extend(store_router.registry)
 
 # Transaction
 router.registry.extend(transaction_router.registry)
+
+# Report
+router.registry.extend(report_router.registry)
